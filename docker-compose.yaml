@@ -1,0 +1,7 @@
+version: '2'
+services:
+  client-side:
+    image: harperkej/thingy-client-purple
+    container_name: thingy-client-purple
+    ports:
+     - 80:80
