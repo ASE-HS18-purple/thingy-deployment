@@ -5,11 +5,15 @@ services:
     container_name: influx-db
     ports:
      - 8086:8086
+    volumes:
+     - /var/lib/influxdb:/var/lib/influxdb
   mongo-db:
     image: mongo
     container_name: mongo-db
     ports:
      - 27017:27017
+    volumes:
+     - /var/lib/mongodb:/data/db
   server-side:
     image: harperkej/thingy-api-purple
     container_name: thingy-api-client
