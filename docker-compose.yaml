@@ -15,7 +15,7 @@ services:
     container_name: thingy-api-client
     restart: always
     ports:
-     - 3000:3000
+     - 8080:3000
     depends_on:
      - mongo-db
      - influx-db
