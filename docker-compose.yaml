@@ -1,5 +1,27 @@
 version: '2'
 services:
+  influx-db:
+    image: influxdb
+    container_name: influx-db
+    ports:
+     - 8086:8086
+  mongo-db:
+    image: mongo
+    container_name: mongo-db
+    ports:
+     - 27017:27017
+  server-side:
+    image: harperkej/thingy-api-purple
+    container_name: thingy-api-client
+    restart: always
+    ports:
+     - 3000:3000
+    depends_on:
+     - mongo-db
+     - influx-db
+    links:
+     - mongo-db:mongo
+     - influx-db:influx
   client-side:
     image: harperkej/thingy-client-purple
     container_name: thingy-client-purple
